@@ -1,10 +1,11 @@
+from app.endpoints import exercise
 import sys
 sys.path.append('.')
 from app.endpoints.exercise.errors import InvalidDateFormat, InvalidFileFormat
-
+from app.endpoints.exercise.exercise import Exercise
 from datetime import datetime
 
-def extract_data(file):
+def extract_data(user, file):
 
     try:
         line_couter = 1
@@ -36,9 +37,9 @@ def extract_data(file):
                     line.remove("")
                 
                 
-                sets = line[0][0]
-                reps = line[0][1]
-                weight = line[1].replace("kg", "")
+                sets = int(line[0][0])
+                reps = int(line[0][1])
+                weight = int(line[1].replace("kg", ""))
                 if len(line) == 2:
                     name = name
                 else:
@@ -46,7 +47,11 @@ def extract_data(file):
                     for i in range(2, len(line)):
                         name += line[i]
                 
-                print(int(sets), int(reps), int(weight), str(name))
+                
+
+                exercise = Exercise(user, reps, sets, weight, name, date)
+                exercise.upload()
+
                 line_couter += 1
 
 

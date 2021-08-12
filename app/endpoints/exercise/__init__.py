@@ -38,11 +38,9 @@ async def file_upload(user_id, date: str = None ,file_uplaod: UploadFile = File(
     
     user = User(id=user_id)
 
-    date = datetime.strptime(date, "%Y-%m-%d")
+    extract_data(user.id, file_uplaod.file)
 
-    return extract_data(file_uplaod.file)
-
-@router.get("/example_file_download")
+@router.get("/demo_file_download")
 async def example_file_download():
     return FileResponse(os.path.abspath("app\endpoints\exercise\helper\demo-file.txt"), media_type='application/octet-stream', filename="demo-file.txt")
               

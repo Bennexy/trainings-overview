@@ -4,17 +4,20 @@ sys.path.append(".")
 from datetime import datetime
 from app import mycursor, mydb
 from mysql.connector.errors import IntegrityError
+from app.endpoints.user.errors import UserIdNotValidError
 
 
 class Exercise:
 
-    def __init__(self, user, reps: int = None, sets: int = None, weight: int = None, name: str = None) -> None:
+    def __init__(self, user, reps: int = None, sets: int = None, weight: int = None, name: str = None, date: datetime.date = None) -> None:
         self.user = user
         self.name = name
         self.reps = reps
         self.sets = sets
         self.weight = weight
-        self.date = datetime.now().strftime("%Y-%m-%d %H")
+        self.date = date
+        if date == None:
+            self.date = datetime.now().strftime("%Y-%m-%d")
 
     def upload(self):
         try:
@@ -27,7 +30,7 @@ class Exercise:
             return None
 
         except IntegrityError as e:
-            return "This user_id is not valid"
+            raise UserIdNotValidError(message="This user_id is not valid")
 
         except Exception as e:
             return e
