@@ -3,6 +3,9 @@ sys.path.append(".")
 from datetime import datetime
 from app import mycursor, mydb
 from app.endpoints.user.errors import NoArgsGivenError
+from app.logger import get_logger
+
+logger = get_logger("User-class-logger")
 
 class User:
 
@@ -24,6 +27,8 @@ class User:
             mycursor.execute(f"SELECT id FROM users WHERE name = '{self.name}' AND creation_date = '{self.creation_date}' ORDER BY id DESC LIMIT 1")
             self.id = mycursor.fetchall()[0]
 
+            logger.debug(f"User {self.id, self.name} successfully created")
+
             return None
 
         except Exception as e:
@@ -35,6 +40,8 @@ class User:
 
             mycursor.execute(f"UPDATE users SET name = '{self.name}' WHERE id = {self.id}")
             mydb.commit()
+
+            logger.debug(f"User {self.id, self.name} successfully updated")
 
             return None
 

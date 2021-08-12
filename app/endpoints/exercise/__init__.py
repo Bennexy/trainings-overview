@@ -1,15 +1,21 @@
+import os
 import sys
+import datetime
 
 from fastapi.datastructures import UploadFile
 sys.path.append(".")
 from fastapi import APIRouter, File
+from starlette.responses import FileResponse
 from app.endpoints.user.user import User
 from app.endpoints.exercise.exercise import Exercise
+from app.endpoints.exercise.helper.file_data_extractor import extract_data
 
 
-router = APIRouter()
 
-@router.post("/{user_id}")
+router = APIRouter(tags=["Exercise"])
+
+description_exercise = "Uploads data from one set of exercises to the db"
+@router.post("/{user_id}", description=description_exercise)
 async def exercise(user_id, name, reps, sets, weight):
 
     user = User(id=user_id)
@@ -26,44 +32,20 @@ async def exercise(user_id, name, reps, sets, weight):
         return {"message": "An error has occured", "error": error}
 
 
-
-@router.post("/file_uplaod/{user_id}")
-async def file_upload(user_id, file_uplaod: UploadFile = File(...)):
+description_file_upload = """Uploads data from a file - for format info download the demo file"""
+@router.post("/file_uplaod/{user_id}", description=description_file_upload)
+async def file_upload(user_id, date: str = None ,file_uplaod: UploadFile = File(...)):
     
     user = User(id=user_id)
 
-    extract_data(file_uplaod.file)
+    date = datetime.strptime(date, "%Y-%m-%d")
 
+    return extract_data(file_uplaod.file)
 
-
-def extract_data(file):
-
-    for line in file:
-        line = line.decode("utf-8").rstrip("\n") 
-        
-        line = line.split(" ")
-
-        if '-' not in line[0] and line[0] != "":
-            
-            line[0] = line[0].split("x")
-
-            while "" in line:
-                line.remove("")
-            
-            
-            sets = line[0][0]
-            reps = line[0][1]
-            weight = line[1].replace("kg", "")
-            if len(line) == 2:
-                name = name
-            else:
-                name = ""
-                for i in range(2, len(line)):
-                    name += line[i]
-            
-            print(sets, reps, weight, name)
-
-                
+@router.get("/example_file_download")
+async def example_file_download():
+    return FileResponse(os.path.abspath("app\endpoints\exercise\helper\demo-file.txt"), media_type='application/octet-stream', filename="demo-file.txt")
+              
 
 
 

@@ -1,0 +1,11 @@
+2021-08-12 17:26:08,693 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 7 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-12 17:27:55,611 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 7 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-12 17:28:12,794 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 7 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-12 17:28:14,750 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 7 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-12 17:28:16,088 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 7 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-12 17:28:44,584 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 7 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-12 17:30:37,953 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 7 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-12 17:33:41,757 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 0 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-12 17:33:56,054 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 18 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-12 17:38:34,674 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 18 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-12 17:39:20,565 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 18 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
