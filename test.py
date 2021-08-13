@@ -30,8 +30,27 @@ for line in lines:
     print(date)
 
 
+date = "24.07.2021"
+date = date.split(".")
 
+print(date)
 
+dt = datetime.today()
+
+if len(date) == 1:
+
+    date = datetime.strptime(f"{date[0]}.{dt.month}.{dt.year}", "%d.%m.%Y")
+    print(date)
+
+elif len(date) == 2:
+
+    date = datetime.strptime(f"{date[0]}.{date[1]}.{dt.year}", "%d.%m.%Y")
+    print(date)
+
+elif len(date) == 3:
+
+    date = datetime.strptime(f"{date[0]}.{date[1]}.{date[2]}", "%d.%m.%Y")
+    print(date)
 
 
 

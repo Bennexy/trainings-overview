@@ -1,7 +1,6 @@
 from logging import debug
 import sys
 
-import requests
 sys.path.append(".")
 from fastapi import FastAPI, Response
 

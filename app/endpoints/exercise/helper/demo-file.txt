@@ -1,5 +1,5 @@
 # <- lines starting with a hashtag will be ignored
-- <- lines starting with a dash will be search for a date only valid with this format --> dd/mm/yy --> if the year and month are left blank the program will assume the current month and year
+# - <- lines starting with a dash will be search for a date only valid with this format --> dd/mm/yy --> if the year and month are left blank the program will assume the current month and year
 
 # The syntax of the exercise is following: 'sets'x'reps' 'weight' 'name'
 # The ' is only for demonstration 
@@ -27,8 +27,9 @@
 1x12 55kg
 
 
-- 08.08 Brust
-3x12 Bauch unroll
+- 08.08 
+# Brust
+3x12 0kg Bauch unroll
 1x12 40kg Bankdrücken
 3x12 60kg
 2x12 50kg
@@ -51,7 +52,8 @@
 
 
 
-- 07.08 Beine
+- 07.08 
+# Beine
 3x12 0kg Bauch unroll
 1x12 60kg Squats
 1x12 65kg
@@ -73,7 +75,8 @@
 
 
 
-- 5.08 Rücken
+- 5.08 
+# Rücken
 3x12 0kg Bauch unroll
 1x12 60kg Kreuzheben
 1x12 80kg
@@ -98,21 +101,21 @@
 
 
 
-- 4.08 - Simon
+- 4.08 
+# Simon
 3x12 Bauch unroll
 3x12 60kg Kniebeugen
-- Ben
+# Ben
 2x12 50kg Bankdrücken
 1x12 70kg
 2x12 60kg
-- Simon
+# Simon
 1x12 50kg Bankdrücken
 2x12 75kg
 1x12 70kg
 1x12 60kg
 
-- Beide:
-------
+# Beide:
 1x12 40kg Low row
 1x12 70kg Low row
 1x12 80kg
@@ -125,7 +128,7 @@
 3x12 30kg
 4x12 30kg Schulterdrücken
 
-- Ben
+# Ben
 1x12 50kg Brust Druck Maschine
 2x12 70kg
 2x12 40kg
@@ -135,7 +138,7 @@
 
 
 
-- 31.07 - Brust
+- 31.07 Brust
 3x10 0kg Bauch unroll
 1x12 20kg Schulterdrücken
 2x12 30kg Schulterdrücken

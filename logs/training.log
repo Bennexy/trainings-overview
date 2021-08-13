@@ -9,3 +9,109 @@
 2021-08-12 17:33:56,054 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 18 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
 2021-08-12 17:38:34,674 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 18 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
 2021-08-12 17:39:20,565 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 18 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-13 14:48:53,161 - logger-exercise-error - ERROR - Your date formating is faulty -> Line 1 <class 'app.endpoints.exercise.errors.InvalidDateFormat'>
+2021-08-13 15:00:26,773 - logger-exercise-error - ERROR - Your date formating is faulty -> Line 1 <class 'app.endpoints.exercise.errors.InvalidDateFormat'>
+2021-08-13 15:01:40,868 - logger-exercise-error - ERROR - Your date formating is faulty -> Line 9 <class 'app.endpoints.exercise.errors.InvalidDateFormat'>
+2021-08-13 15:02:28,823 - logger-exercise-error - ERROR - Your date formating is faulty -> Line 9 <class 'app.endpoints.exercise.errors.InvalidDateFormat'>
+2021-08-13 15:02:56,144 - logger-exercise-error - ERROR - Your date formating is faulty -> Line 9 <class 'app.endpoints.exercise.errors.InvalidDateFormat'>
+2021-08-13 15:07:54,695 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:07:54,696 - logger-exercise-error - ERROR - Your date formating is faulty -> Line 9 <class 'app.endpoints.exercise.errors.InvalidDateFormat'>
+2021-08-13 15:08:20,881 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:08:20,881 - logger-exercise-error - ERROR - Your date formating is faulty -> Line 9 <class 'app.endpoints.exercise.errors.InvalidDateFormat'>
+2021-08-13 15:09:13,275 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:09:13,275 - logger-exercise-error - ERROR - Your date formating is faulty -> Line 9 <class 'app.endpoints.exercise.errors.InvalidDateFormat'>
+2021-08-13 15:10:09,489 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:10:09,490 - logger-exercise-error - ERROR - Your date formating is faulty -> Line 9 <class 'app.endpoints.exercise.errors.InvalidDateFormat'>
+2021-08-13 15:10:26,733 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:10:26,734 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:10:26,734 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:10:26,735 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-13 15:10:26,739 - logger-exercise-error - ERROR - Your date formating is faulty -> Line 9 <class 'app.endpoints.exercise.errors.InvalidDateFormat'>
+2021-08-13 15:10:44,939 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:10:44,940 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:10:44,941 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:10:44,941 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-13 15:10:44,942 - logger-exercise-error - ERROR - Your date formating is faulty -> Line 9 <class 'app.endpoints.exercise.errors.InvalidDateFormat'>
+2021-08-13 15:11:28,014 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:11:28,927 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:11:40,704 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:11:41,646 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-13 15:12:53,986 - logger-exercise-error - ERROR - Your date formating is faulty -> Line 9 <class 'app.endpoints.exercise.errors.InvalidDateFormat'>
+2021-08-13 15:12:53,994 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:12:53,994 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:12:53,994 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:12:53,994 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-13 15:12:53,994 - logger-exercise-error - ERROR - Your date formating is faulty -> Line 9 <class 'app.endpoints.exercise.errors.InvalidDateFormat'>
+2021-08-13 15:13:05,166 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:13:05,167 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:13:05,167 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:13:05,168 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-13 15:13:05,174 - logger-exercise-file-data-extractor - ERROR - time data '09.08.21' does not match format '%d.%m.%Y'
+2021-08-13 15:13:05,175 - logger-exercise-error - ERROR - Your date formating is faulty -> Line 9 <class 'app.endpoints.exercise.errors.InvalidDateFormat'>
+2021-08-13 15:14:11,428 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:14:11,735 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:14:12,513 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:14:13,035 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-13 15:14:29,901 - logger-exercise-file-data-extractor - INFO - 08.08
+2021-08-13 15:14:29,902 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:14:29,902 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:14:29,903 - logger-exercise-file-data-extractor - INFO - ['08', '08']
+2021-08-13 15:14:29,903 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 32 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-13 15:16:05,516 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:16:05,517 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:16:05,517 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:16:05,518 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-13 15:17:14,015 - logger-exercise-file-data-extractor - INFO - 08.08
+2021-08-13 15:17:14,015 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:17:14,016 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:17:14,016 - logger-exercise-file-data-extractor - INFO - ['08', '08']
+2021-08-13 15:17:14,017 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 49 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-13 15:17:14,027 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:17:14,027 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:17:14,028 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:17:14,028 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-13 15:17:14,028 - logger-exercise-file-data-extractor - INFO - 08.08
+2021-08-13 15:17:14,029 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:17:14,029 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:17:14,029 - logger-exercise-file-data-extractor - INFO - ['08', '08']
+2021-08-13 15:17:14,030 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 49 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-13 15:17:18,935 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:17:18,936 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:17:18,937 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:17:18,937 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-13 15:17:18,942 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 11 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-13 15:17:22,575 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:17:22,575 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:17:22,576 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:17:22,576 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-13 15:17:22,577 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 11 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-13 15:17:47,474 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:17:47,474 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:17:47,475 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:17:47,475 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-13 15:19:00,863 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 11 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-13 15:19:00,869 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:19:00,869 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:19:00,869 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:19:00,869 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-13 15:19:00,869 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 11 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-13 15:19:15,485 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:19:15,486 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:19:15,487 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:19:15,487 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-13 15:19:15,491 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 11 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-13 15:19:26,139 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:19:26,140 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:19:26,141 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:19:26,142 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-13 15:20:07,813 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 11 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-13 15:20:15,033 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:20:15,034 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:20:15,034 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:20:15,034 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-13 15:24:20,855 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 11 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-13 15:24:47,483 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-13 15:24:47,484 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:24:47,484 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-13 15:24:47,485 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-13 15:24:50,497 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 11 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>

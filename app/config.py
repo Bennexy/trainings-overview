@@ -15,7 +15,7 @@ DB_NAME = os.getenv('DB_NAME')
 
 with open(os.path.join("versions", "core-version.txt"), "r") as file:
     for line in file:
-        VERSION = line
+        VERSION = line.rstrip("\n")
         break
 
 
