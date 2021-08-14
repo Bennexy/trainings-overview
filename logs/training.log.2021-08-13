@@ -1,0 +1,12 @@
+2021-08-14 08:23:03,687 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-14 08:23:03,688 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-14 08:23:03,689 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-14 08:23:03,689 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-14 08:23:08,406 - logger-exercise-file-data-extractor - INFO - 08.08
+2021-08-14 08:23:08,407 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-14 08:23:08,407 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-14 08:23:08,408 - logger-exercise-file-data-extractor - INFO - ['08', '08']
+2021-08-14 08:24:38,237 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-14 08:24:38,238 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-14 08:24:38,239 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-14 08:24:38,240 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']

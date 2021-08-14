@@ -13,6 +13,7 @@ logger = get_logger("logger-exercise-file-data-extractor")
 
 def extract_data(user, file):
 
+    exercises = []
     try:
         line_couter = 1
         for line in file:
@@ -45,34 +46,34 @@ def extract_data(user, file):
                 
                 sets = int(line[0][0])
                 reps = int(line[0][1])
-                weight = int(line[1].replace("kg", ""))
+                weight = float(line[1].replace("kg", "").replace(",", "."))
                 if len(line) == 2:
                     name = name
                 else:
                     name = ""
                     for i in range(2, len(line)):
-                        name += line[i]
-                
+                        name += line[i] + " "
                 
 
                 exercise = Exercise(user, reps, sets, weight, name, date)
-                exercise.upload()
+                exercises.append(exercise)
 
             
             line_couter += 1
 
 
 
+        for exercise in exercises:
+            error = exercise.upload()
 
+            if error != None:
+                return error
 
-        return {"message": "Successfully added data to db"}
-
-    except IntegrityError as e:
-        error = UserIdNotValidError(message="the given user id is not valid")
-        return {"message": error.message, "error": error.name}
+        return None
 
     except Exception as e:
-        error = InvalidFileFormat(message=f"The syntax of your file is invalid on line nr: {line_couter}")
+        logger.error(f"{e} has occured on line {line_couter}")
+        raise InvalidFileFormat(message=f"The syntax of your file is invalid on line nr: {line_couter}", previous_error=e)
         return {"message": error.message, "error": error.name}
 
 
