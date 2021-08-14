@@ -46,3 +46,22 @@ class Exercise:
         mydb.commit()
 
         return {'message': f'{mycursor.rowcount} entries renamed'}
+
+    def delete_exercise_from_db(self, exercise_data):
+
+        # exercise_data -format = {'name': exercise_name, 'date': exercise_date, 'reps': exercise_reps, 'sets': exercise_sets, 'weight': exercise_weight}
+
+        delete_string = f"user_id = '{self.user.id}' AND name = '{exercise_data['name']}' AND date = '{exercise_data['date']}'"
+        if 'reps' in exercise_data:
+            delete_string + f" AND reps = '{exercise_data['reps']}'"
+        if 'sets' in exercise_data:
+            delete_string + f" AND sets = '{exercise_data['sets']}'"
+        if 'weight' in exercise_data:
+            delete_string + f" AND weight = '{exercise_data['weight']}'"
+
+        mycursor.execute(f"DELETE FROM exercise WHERE " + delete_string)
+        mydb.commit()
+
+
+
+

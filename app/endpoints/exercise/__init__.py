@@ -68,7 +68,14 @@ async def update_exercise_name(user_id : int, exercise_name_old: str, exercise_n
         logger.error(f"{e} has occured while trying to execute 'update_exercise_name'")
         return e
 
+@router.delete("/delete_exercise/{user_id}", description="Needs exercise data in form of a dict")
+async def delete_exercise(user_id : int, exercise_data: dict):
 
+    exercise = Exercise(User(user_id))
+
+    exercise.delete_exercise_from_db(exercise_data)
+
+    return {"message": "Data has been deleted from db"}
 
 
 

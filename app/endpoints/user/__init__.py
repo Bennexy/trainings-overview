@@ -1,7 +1,4 @@
 import sys
-from typing import Dict
-
-from mysql.connector import errors
 sys.path.append(".")
 from fastapi import APIRouter
 from app.endpoints.user.user import User
@@ -55,41 +52,6 @@ async def delete_user(user_id : int):
 
     else:
         return {"message": "An error has occured", "error": error}
-
-
-@router.get("/get_traning_days({user_id}")
-async def get_training_days(user_id : int):
-
-        user = User(id=user_id)
-
-        return user.get_training_days()
-    
-@router.get("/get_max_weight/{user_id}/")
-async def get_max_weight(user_id : int, exercise: str = None):
-
-    user = User(id=user_id)
-
-    max = user.get_max_traings_data(exercise)
-
-    return max
-
-@router.get("/get_exercise_names/{user_id}")
-async def get_exercise_names(user_id : int):
-
-    user = User(id=user_id)
-
-    return user.get_exercise_names()
-
-
-@router.delete("/delete_exercise/{user_id}")
-async def delete_exercise(user_id : int, exercise_data: dict):
-
-    user = User(id=user_id)
-
-    user.delete_exercise_from_db(exercise_data)
-
-    return {"message": "Data has been deleted from db"}
-
 
 
 

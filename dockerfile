@@ -23,8 +23,6 @@ FROM ubuntu:20.04 as runner-image
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt update -y && apt install gunicorn -y
-
 COPY --from=builder-image /app/venv /app/venv
 
 RUN mkdir /app/code
@@ -42,4 +40,4 @@ ENV PYTHONUNBUFFERED=1
 ENV VIRTUAL_ENV=/app/venv
 ENV PATH="/app/venv/bin:$PATH"
 
-CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "-b", "0.0.0.0:8080", "-p", "8080", "-w", "4", "--threads", "4", "--worker-tmp-dir", "/dev/shm", "app:app"]
+CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "-b", "127.0.0.1:8080", "-w", "4", "--threads", "4", "--worker-tmp-dir", "/dev/shm", "app:app"]
