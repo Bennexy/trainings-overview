@@ -26,6 +26,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 COPY --from=builder-image /app/venv /app/venv
 
 RUN mkdir /app/code
+RUN apt-get update && apt-get install gunicorn -y
 
 WORKDIR /app/code
 
@@ -40,4 +41,4 @@ ENV PYTHONUNBUFFERED=1
 ENV VIRTUAL_ENV=/app/venv
 ENV PATH="/app/venv/bin:$PATH"
 
-CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "-b", "127.0.0.1:8080", "-w", "4", "--threads", "4", "--worker-tmp-dir", "/dev/shm", "app:app"]
+CMD ["python3", "-m", "gunicorn", "-k", "uvicorn.workers.UvicornWorker", "-b", "127.0.0.1:8080", "-w", "4", "--threads", "4", "--worker-tmp-dir", "/dev/shm", "app:app"]
