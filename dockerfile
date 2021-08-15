@@ -41,4 +41,4 @@ ENV PYTHONUNBUFFERED=1
 ENV VIRTUAL_ENV=/app/venv
 ENV PATH="/app/venv/bin:$PATH"
 
-CMD ["python3", "-m", "gunicorn", "-k", "uvicorn.workers.UvicornWorker", "-b", "127.0.0.1:8080", "-w", "4", "--threads", "4", "--worker-tmp-dir", "/dev/shm", "app:app"]
+CMD ["python3", "-m", "gunicorn", "-k", "uvicorn.workers.UvicornWorker", "-b", "0.0.0.0:8080", "-w", "4", "--threads", "4", "--worker-tmp-dir", "/dev/shm", "app:app"]
