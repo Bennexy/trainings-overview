@@ -4,6 +4,9 @@ import sys
 sys.path.append(".")
 from fastapi import APIRouter
 from app.endpoints.user import User
+from app.logger import get_logger
+
+logger = get_logger("evalation-endpoints")
 
 router = APIRouter(tags=["Evaluation"])
 
@@ -42,9 +45,13 @@ async def get_exercise_names(user_id : int):
 @router.get("/get_exercise_history/{user_id}")
 async def get_exercise_history(user_id: int, exercise_name: str = None):
 
-    evaluation = Evaluation(user=User(id=user_id))
+    try:
+        evaluation = Evaluation(user=User(id=user_id))
 
-    return evaluation.get_exercise_history(exercise_name)
+        return evaluation.get_exercise_history(exercise_name)
+    except Exception as e:
+        logger.error(e)
+        return {"error": e}
 
 
 

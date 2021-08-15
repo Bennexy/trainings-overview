@@ -23,6 +23,10 @@ app.include_router(router_users, prefix="/user")
 app.include_router(router_exercise, prefix="/exercise")
 app.include_router(router_evaluation, prefix="/evaluation")
 
+@app.get("/")
+def index():
+    return "I'm running!"
+
  
 if __name__ == '__main__':
     import uvicorn

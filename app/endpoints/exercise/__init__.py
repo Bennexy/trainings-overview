@@ -37,16 +37,14 @@ description_file_upload = """Uploads data from a file - for format info download
 @router.post("/file_uplaod/{user_id}", description=description_file_upload)
 async def file_upload(user_id : int,date: str = None ,file_uplaod: UploadFile = File(...)):
     
-    user = User(id=user_id)
+    try:
+        user = User(id=user_id)
 
-    error = extract_data(user, file_uplaod.file)
-
-    if error == None:
+        error = extract_data(user, file_uplaod.file)
 
         return {"message": "Exercise data has been uploaded to db"}
-    
-    else:
-        return {"message": "An error has occured", "error": error}
+    except Exception as e:
+        return e
 
 @router.get("/demo_file_download")
 async def example_file_download():

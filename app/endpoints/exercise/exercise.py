@@ -1,4 +1,5 @@
 import sys
+import json
 sys.path.append(".")
 
 from datetime import datetime
@@ -15,20 +16,29 @@ logger = get_logger("logger-exercise")
 
 class Exercise:
 
-    def __init__(self, user, reps: int = None, sets: int = None, weight: int = None, name: str = None, date: datetime.date = None) -> None:
+    def __init__(self, user, reps: int = None, sets: int = None, weight: int = None, name: str = None, date: datetime.date = None, pyramid: dict = None) -> None:
         self.user = user
         self.name = name
         self.reps = reps
         self.sets = sets
         self.weight = weight
         self.date = date
+        self.pyramid = pyramid
         if date == None:
             self.date = datetime.now().strftime("%Y-%m-%d")
+        if pyramid == None:
+            self.pyramid = {
+                'name': self.name, 
+                'reps': [self.reps], 
+                'sets': [self.sets],
+                'weight': [self.weight]
+                }
+            
 
     def upload(self) -> None:
         try:
-            sql = "INSERT INTO exercise (user_id, name, reps, sets, weight, date) VALUES (%s, %s, %s, %s, %s, %s)"
-            val = [(self.user.id, self.name, self.reps, self.sets, self.weight, self.date)]
+            sql = "INSERT INTO exercise (user_id, name, date, pyramid) VALUES (%s, %s, %s, %s)"
+            val = [(self.user.id, self.name, self.date, json.dumps(self.pyramid))]
 
             mycursor.executemany(sql, val)
             mydb.commit()
@@ -47,6 +57,7 @@ class Exercise:
 
         return {'message': f'{mycursor.rowcount} entries renamed'}
 
+    # still needs fixing
     def delete_exercise_from_db(self, exercise_data):
 
         # exercise_data -format = {'name': exercise_name, 'date': exercise_date, 'reps': exercise_reps, 'sets': exercise_sets, 'weight': exercise_weight}
@@ -62,6 +73,9 @@ class Exercise:
         mycursor.execute(f"DELETE FROM exercise WHERE " + delete_string)
         mydb.commit()
 
-
+    def add_to_pyramid(self, reps: int, sets: int, weight: int):
+        self.pyramid["reps"].append(reps)
+        self.pyramid["sets"].append(sets)
+        self.pyramid["weight"].append(weight)
 
 

@@ -1,4 +1,5 @@
 import sys
+import json
 sys.path.append(".")
 from app.endpoints.user.user import User
 from datetime import datetime
@@ -67,18 +68,22 @@ class Evaluation:
     def get_exercise_history(self, exercise_name) -> dict:
 
         if exercise_name != None:
-            mycursor.execute(f"SELECT date, name, reps, sets, weight FROM exercise WHERE user_id = '{self.user.id}' AND name = '{exercise_name}'")
+            mycursor.execute(f"SELECT date, pyramid FROM exercise WHERE user_id = '{self.user.id}' AND name = '{exercise_name}'")
         else:
-            mycursor.execute(f"SELECT date, name, reps, sets, weight FROM exercise WHERE user_id = '{self.user.id}'")
-
+            mycursor.execute(f"SELECT date, pyramid FROM exercise WHERE user_id = '{self.user.id}'")
 
         res = mycursor.fetchall()
+
         data = {}
         for entry in res:
-            if entry[1] not in data:
-                data[entry[1]] = [{'date': entry[0], 'name': entry[1], 'reps': entry[2], 'sets': entry[3], 'weight': entry[4]}]
-            else:
-                data[entry[1]].append({'date': entry[0], 'name': entry[1], 'reps': entry[2], 'sets': entry[3], 'weight': entry[4]})
+            print
+            pyramid_data = json.loads(str(entry[1]))
+            if pyramid_data["name"].lower() not in data:
+                data[pyramid_data['name'].lower()] = []
+            
+            for i in range(0, len(pyramid_data['reps'])):
+                data[pyramid_data['name'].lower()].append({'date': entry[0], 'name': pyramid_data['name'], 'reps': pyramid_data['reps'][i], 'sets': pyramid_data['sets'][i], 'weight': pyramid_data['weight'][i]})
+
 
         return data
 

@@ -1,157 +1,161 @@
-2021-08-14 08:23:08,409 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 49 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
-2021-08-14 08:25:19,999 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 12 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
-2021-08-14 08:25:39,428 - logger-exercise-file-data-extractor - INFO - 09.08.21
-2021-08-14 08:25:39,429 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:25:39,429 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:25:39,429 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
-2021-08-14 08:25:39,434 - logger-exercise-file-data-extractor - INFO - 08.08
-2021-08-14 08:25:39,435 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:25:39,435 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:25:39,435 - logger-exercise-file-data-extractor - INFO - ['08', '08']
-2021-08-14 08:25:39,436 - logger-exercise-file-data-extractor - INFO - 07.08
-2021-08-14 08:25:39,436 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:25:39,437 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:25:39,437 - logger-exercise-file-data-extractor - INFO - ['07', '08']
-2021-08-14 08:25:39,437 - logger-exercise-file-data-extractor - INFO - 5.08
-2021-08-14 08:25:39,438 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:25:39,438 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:25:39,438 - logger-exercise-file-data-extractor - INFO - ['5', '08']
-2021-08-14 08:25:39,439 - logger-exercise-file-data-extractor - INFO - 4.08
-2021-08-14 08:25:39,439 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:25:39,439 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:25:39,440 - logger-exercise-file-data-extractor - INFO - ['4', '08']
-2021-08-14 08:25:39,440 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 106 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
-2021-08-14 08:26:38,945 - logger-exercise-file-data-extractor - INFO - 09.08.21
-2021-08-14 08:26:38,946 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:38,947 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:38,947 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
-2021-08-14 08:26:38,948 - logger-exercise-file-data-extractor - INFO - 08.08
-2021-08-14 08:26:38,949 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:38,949 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:38,949 - logger-exercise-file-data-extractor - INFO - ['08', '08']
-2021-08-14 08:26:38,950 - logger-exercise-file-data-extractor - INFO - 07.08
-2021-08-14 08:26:38,950 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:38,951 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:38,951 - logger-exercise-file-data-extractor - INFO - ['07', '08']
-2021-08-14 08:26:38,951 - logger-exercise-file-data-extractor - INFO - 5.08
-2021-08-14 08:26:38,952 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:38,952 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:38,953 - logger-exercise-file-data-extractor - INFO - ['5', '08']
-2021-08-14 08:26:38,953 - logger-exercise-file-data-extractor - INFO - 4.08
-2021-08-14 08:26:38,954 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:38,954 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:38,955 - logger-exercise-file-data-extractor - INFO - ['4', '08']
-2021-08-14 08:26:38,956 - logger-exercise-file-data-extractor - INFO - 31.07
-2021-08-14 08:26:38,956 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:38,956 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:38,957 - logger-exercise-file-data-extractor - INFO - ['31', '07']
-2021-08-14 08:26:38,957 - logger-exercise-file-data-extractor - INFO - 29.07.21
-2021-08-14 08:26:38,958 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:38,958 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:38,958 - logger-exercise-file-data-extractor - INFO - ['29', '07', '21']
-2021-08-14 08:26:38,959 - logger-exercise-file-data-extractor - INFO - 26.07.21
-2021-08-14 08:26:38,960 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:38,960 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:38,960 - logger-exercise-file-data-extractor - INFO - ['26', '07', '21']
-2021-08-14 08:26:38,961 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 184 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
-2021-08-14 08:26:59,256 - logger-exercise-file-data-extractor - INFO - 09.08.21
-2021-08-14 08:26:59,257 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:59,257 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:59,257 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
-2021-08-14 08:26:59,258 - logger-exercise-file-data-extractor - INFO - 08.08
-2021-08-14 08:26:59,258 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:59,259 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:59,259 - logger-exercise-file-data-extractor - INFO - ['08', '08']
-2021-08-14 08:26:59,261 - logger-exercise-file-data-extractor - INFO - 07.08
-2021-08-14 08:26:59,261 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:59,262 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:59,263 - logger-exercise-file-data-extractor - INFO - ['07', '08']
-2021-08-14 08:26:59,264 - logger-exercise-file-data-extractor - INFO - 5.08
-2021-08-14 08:26:59,264 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:59,264 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:59,265 - logger-exercise-file-data-extractor - INFO - ['5', '08']
-2021-08-14 08:26:59,266 - logger-exercise-file-data-extractor - INFO - 4.08
-2021-08-14 08:26:59,266 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:59,266 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:59,267 - logger-exercise-file-data-extractor - INFO - ['4', '08']
-2021-08-14 08:26:59,268 - logger-exercise-file-data-extractor - INFO - 31.07
-2021-08-14 08:26:59,268 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:59,269 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:59,269 - logger-exercise-file-data-extractor - INFO - ['31', '07']
-2021-08-14 08:26:59,270 - logger-exercise-file-data-extractor - INFO - 29.07.21
-2021-08-14 08:26:59,270 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:59,271 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:59,271 - logger-exercise-file-data-extractor - INFO - ['29', '07', '21']
-2021-08-14 08:26:59,272 - logger-exercise-file-data-extractor - INFO - 26.07.21
-2021-08-14 08:26:59,272 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:59,273 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:26:59,273 - logger-exercise-file-data-extractor - INFO - ['26', '07', '21']
-2021-08-14 08:26:59,274 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 192 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
-2021-08-14 08:28:41,193 - logger-exercise-file-data-extractor - INFO - 09.08.21
-2021-08-14 08:28:41,194 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:28:41,194 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:28:41,196 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
-2021-08-14 08:28:41,198 - logger-exercise-file-data-extractor - INFO - 08.08
-2021-08-14 08:28:41,199 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:28:41,199 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:28:41,200 - logger-exercise-file-data-extractor - INFO - ['08', '08']
-2021-08-14 08:28:41,202 - logger-exercise-file-data-extractor - INFO - 07.08
-2021-08-14 08:28:41,203 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:28:41,203 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:28:41,204 - logger-exercise-file-data-extractor - INFO - ['07', '08']
-2021-08-14 08:28:41,206 - logger-exercise-file-data-extractor - INFO - 5.08
-2021-08-14 08:28:41,206 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:28:41,206 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:28:41,207 - logger-exercise-file-data-extractor - INFO - ['5', '08']
-2021-08-14 08:28:41,208 - logger-exercise-file-data-extractor - INFO - 4.08
-2021-08-14 08:28:41,209 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:28:41,209 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:28:41,210 - logger-exercise-file-data-extractor - INFO - ['4', '08']
-2021-08-14 08:28:41,211 - logger-exercise-file-data-extractor - INFO - 31.07
-2021-08-14 08:28:41,212 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:28:41,213 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:28:41,213 - logger-exercise-file-data-extractor - INFO - ['31', '07']
-2021-08-14 08:28:41,214 - logger-exercise-file-data-extractor - INFO - 29.07.21
-2021-08-14 08:28:41,215 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:28:41,215 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:28:41,216 - logger-exercise-file-data-extractor - INFO - ['29', '07', '21']
-2021-08-14 08:28:41,219 - logger-exercise-file-data-extractor - INFO - 26.07.21
-2021-08-14 08:28:41,219 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:28:41,220 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:28:41,220 - logger-exercise-file-data-extractor - INFO - ['26', '07', '21']
-2021-08-14 08:31:28,391 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 192 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
-2021-08-14 08:32:18,927 - logger-exercise-file-data-extractor - INFO - 09.08.21
-2021-08-14 08:32:18,927 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:32:18,928 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:32:18,928 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
-2021-08-14 08:32:18,938 - logger-exercise-file-data-extractor - INFO - 08.08
-2021-08-14 08:32:18,939 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:32:18,940 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:32:18,941 - logger-exercise-file-data-extractor - INFO - ['08', '08']
-2021-08-14 08:32:18,943 - logger-exercise-file-data-extractor - INFO - 07.08
-2021-08-14 08:32:18,944 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:32:18,945 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:32:18,945 - logger-exercise-file-data-extractor - INFO - ['07', '08']
-2021-08-14 08:32:18,947 - logger-exercise-file-data-extractor - INFO - 5.08
-2021-08-14 08:32:18,948 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:32:18,948 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:32:18,949 - logger-exercise-file-data-extractor - INFO - ['5', '08']
-2021-08-14 08:32:18,951 - logger-exercise-file-data-extractor - INFO - 4.08
-2021-08-14 08:32:18,952 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:32:18,952 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:32:18,952 - logger-exercise-file-data-extractor - INFO - ['4', '08']
-2021-08-14 08:32:18,955 - logger-exercise-file-data-extractor - INFO - 31.07
-2021-08-14 08:32:18,955 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:32:18,956 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:32:18,956 - logger-exercise-file-data-extractor - INFO - ['31', '07']
-2021-08-14 08:32:18,957 - logger-exercise-file-data-extractor - INFO - 29.07.21
-2021-08-14 08:32:18,958 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:32:18,958 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:32:18,958 - logger-exercise-file-data-extractor - INFO - ['29', '07', '21']
-2021-08-14 08:32:18,961 - logger-exercise-file-data-extractor - INFO - 26.07.21
-2021-08-14 08:32:18,961 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:32:18,962 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
-2021-08-14 08:32:18,962 - logger-exercise-file-data-extractor - INFO - ['26', '07', '21']
-2021-08-14 08:46:41,668 - logger-user-error - ERROR - the given user id is not valid <class 'app.endpoints.user.errors.NoArgsGivenError'>
-2021-08-14 08:47:47,039 - logger-user-error - ERROR - the given user id is not valid <class 'app.endpoints.user.errors.NoArgsGivenError'>
-2021-08-14 12:37:13,240 - exercise-endpoints - ERROR - 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE user_id = '1' AND name = 'seateddip' SET name = 'SeatedDip'' at line 1 has occured while trying to execute 'update_exercise_name'
+2021-08-15 01:28:46,008 - User-class-logger - DEBUG - User (1, 'Ben') successfully updated
+2021-08-15 15:46:23,883 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-15 15:46:23,884 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:46:23,885 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:46:23,885 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-15 15:46:23,895 - logger-exercise-file-data-extractor - INFO - 08.08
+2021-08-15 15:46:23,895 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:46:23,896 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:46:23,896 - logger-exercise-file-data-extractor - INFO - ['08', '08']
+2021-08-15 15:46:23,900 - logger-exercise-file-data-extractor - INFO - 07.08
+2021-08-15 15:46:23,900 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:46:23,901 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:46:23,901 - logger-exercise-file-data-extractor - INFO - ['07', '08']
+2021-08-15 15:46:23,905 - logger-exercise-file-data-extractor - INFO - 5.08
+2021-08-15 15:46:23,905 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:46:23,906 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:46:23,906 - logger-exercise-file-data-extractor - INFO - ['5', '08']
+2021-08-15 15:46:23,912 - logger-exercise-file-data-extractor - INFO - 4.08
+2021-08-15 15:46:23,912 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:46:23,913 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:46:23,915 - logger-exercise-file-data-extractor - INFO - ['4', '08']
+2021-08-15 15:46:23,924 - logger-exercise-file-data-extractor - INFO - 31.07
+2021-08-15 15:46:23,924 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:46:23,925 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:46:23,925 - logger-exercise-file-data-extractor - INFO - ['31', '07']
+2021-08-15 15:46:23,927 - logger-exercise-file-data-extractor - INFO - 29.07.21
+2021-08-15 15:46:23,928 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:46:23,928 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:46:23,928 - logger-exercise-file-data-extractor - INFO - ['29', '07', '21']
+2021-08-15 15:46:23,930 - logger-exercise-file-data-extractor - INFO - 26.07.21
+2021-08-15 15:46:23,930 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:46:23,930 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:46:23,930 - logger-exercise-file-data-extractor - INFO - ['26', '07', '21']
+2021-08-15 15:46:30,443 - logger-exercise-file-data-extractor - ERROR - Failed executing the operation; Python type dict cannot be converted has occured on line 192
+2021-08-15 15:46:49,835 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 192 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-15 15:47:44,091 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-15 15:47:44,092 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:47:44,093 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:47:44,093 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-15 15:47:44,101 - logger-exercise-file-data-extractor - INFO - 08.08
+2021-08-15 15:47:44,102 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:47:44,102 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:47:44,102 - logger-exercise-file-data-extractor - INFO - ['08', '08']
+2021-08-15 15:47:44,105 - logger-exercise-file-data-extractor - INFO - 07.08
+2021-08-15 15:47:44,106 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:47:44,106 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:47:44,106 - logger-exercise-file-data-extractor - INFO - ['07', '08']
+2021-08-15 15:47:44,111 - logger-exercise-file-data-extractor - INFO - 5.08
+2021-08-15 15:47:44,112 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:47:44,112 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:47:44,113 - logger-exercise-file-data-extractor - INFO - ['5', '08']
+2021-08-15 15:47:44,117 - logger-exercise-file-data-extractor - INFO - 4.08
+2021-08-15 15:47:44,118 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:47:44,118 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:47:44,119 - logger-exercise-file-data-extractor - INFO - ['4', '08']
+2021-08-15 15:47:44,121 - logger-exercise-file-data-extractor - INFO - 31.07
+2021-08-15 15:47:44,122 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:47:44,123 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:47:44,123 - logger-exercise-file-data-extractor - INFO - ['31', '07']
+2021-08-15 15:47:44,124 - logger-exercise-file-data-extractor - INFO - 29.07.21
+2021-08-15 15:47:44,125 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:47:44,126 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:47:44,127 - logger-exercise-file-data-extractor - INFO - ['29', '07', '21']
+2021-08-15 15:47:44,128 - logger-exercise-file-data-extractor - INFO - 26.07.21
+2021-08-15 15:47:44,128 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:47:44,128 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:47:44,129 - logger-exercise-file-data-extractor - INFO - ['26', '07', '21']
+2021-08-15 15:47:44,130 - logger-exercise-file-data-extractor - ERROR - Failed executing the operation; Python type dict cannot be converted has occured on line 192
+2021-08-15 15:47:44,130 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 192 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-15 15:49:52,757 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-15 15:49:52,757 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:49:52,758 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:49:52,758 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-15 15:49:52,763 - logger-exercise-file-data-extractor - INFO - 08.08
+2021-08-15 15:49:52,764 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:49:52,764 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:49:52,765 - logger-exercise-file-data-extractor - INFO - ['08', '08']
+2021-08-15 15:49:52,768 - logger-exercise-file-data-extractor - INFO - 07.08
+2021-08-15 15:49:52,769 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:49:52,769 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:49:52,769 - logger-exercise-file-data-extractor - INFO - ['07', '08']
+2021-08-15 15:49:52,773 - logger-exercise-file-data-extractor - INFO - 5.08
+2021-08-15 15:49:52,773 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:49:52,773 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:49:52,774 - logger-exercise-file-data-extractor - INFO - ['5', '08']
+2021-08-15 15:49:52,780 - logger-exercise-file-data-extractor - INFO - 4.08
+2021-08-15 15:49:52,780 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:49:52,780 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:49:52,781 - logger-exercise-file-data-extractor - INFO - ['4', '08']
+2021-08-15 15:49:52,784 - logger-exercise-file-data-extractor - INFO - 31.07
+2021-08-15 15:49:52,785 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:49:52,785 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:49:52,785 - logger-exercise-file-data-extractor - INFO - ['31', '07']
+2021-08-15 15:49:52,786 - logger-exercise-file-data-extractor - INFO - 29.07.21
+2021-08-15 15:49:52,786 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:49:52,787 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:49:52,787 - logger-exercise-file-data-extractor - INFO - ['29', '07', '21']
+2021-08-15 15:49:52,788 - logger-exercise-file-data-extractor - INFO - 26.07.21
+2021-08-15 15:49:52,788 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:49:52,788 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:49:52,789 - logger-exercise-file-data-extractor - INFO - ['26', '07', '21']
+2021-08-15 15:49:52,789 - logger-exercise-file-data-extractor - ERROR - Failed executing the operation; Python type dict cannot be converted has occured on line 192
+2021-08-15 15:49:52,789 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 192 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-15 15:50:21,024 - logger-exercise-file-data-extractor - INFO - 09.08.21
+2021-08-15 15:50:21,024 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:50:21,025 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:50:21,026 - logger-exercise-file-data-extractor - INFO - ['09', '08', '21']
+2021-08-15 15:50:21,031 - logger-exercise-file-data-extractor - INFO - 08.08
+2021-08-15 15:50:21,031 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:50:21,032 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:50:21,032 - logger-exercise-file-data-extractor - INFO - ['08', '08']
+2021-08-15 15:50:21,036 - logger-exercise-file-data-extractor - INFO - 07.08
+2021-08-15 15:50:21,036 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:50:21,037 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:50:21,037 - logger-exercise-file-data-extractor - INFO - ['07', '08']
+2021-08-15 15:50:21,040 - logger-exercise-file-data-extractor - INFO - 5.08
+2021-08-15 15:50:21,041 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:50:21,041 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:50:21,041 - logger-exercise-file-data-extractor - INFO - ['5', '08']
+2021-08-15 15:50:21,044 - logger-exercise-file-data-extractor - INFO - 4.08
+2021-08-15 15:50:21,044 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:50:21,044 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:50:21,044 - logger-exercise-file-data-extractor - INFO - ['4', '08']
+2021-08-15 15:50:21,047 - logger-exercise-file-data-extractor - INFO - 31.07
+2021-08-15 15:50:21,047 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:50:21,047 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:50:21,048 - logger-exercise-file-data-extractor - INFO - ['31', '07']
+2021-08-15 15:50:21,048 - logger-exercise-file-data-extractor - INFO - 29.07.21
+2021-08-15 15:50:21,048 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:50:21,049 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:50:21,049 - logger-exercise-file-data-extractor - INFO - ['29', '07', '21']
+2021-08-15 15:50:21,050 - logger-exercise-file-data-extractor - INFO - 26.07.21
+2021-08-15 15:50:21,050 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:50:21,050 - logger-exercise-file-data-extractor - INFO - -------------------------------------------
+2021-08-15 15:50:21,051 - logger-exercise-file-data-extractor - INFO - ['26', '07', '21']
+2021-08-15 15:50:21,052 - logger-exercise-file-data-extractor - ERROR - Failed executing the operation; Python type dict cannot be converted has occured on line 194
+2021-08-15 15:50:21,053 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 194 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-15 15:50:43,464 - logger-exercise-file-data-extractor - ERROR - Failed executing the operation; Python type dict cannot be converted has occured on line 194
+2021-08-15 15:50:43,464 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 194 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-15 15:53:30,906 - logger-exercise-file-data-extractor - ERROR - Failed executing the operation; Python type dict cannot be converted has occured on line 194
+2021-08-15 15:53:30,907 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 194 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-15 15:55:12,145 - logger-exercise-file-data-extractor - ERROR - Object of type datetime is not JSON serializable has occured on line 194
+2021-08-15 15:55:12,145 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 194 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-15 16:53:09,004 - evalation-endpoints - ERROR - 'tuple' object does not support item assignment
+2021-08-15 16:53:49,469 - evalation-endpoints - ERROR - 'tuple' object does not support item assignment
+2021-08-15 16:54:21,684 - evalation-endpoints - ERROR - dictionary update sequence element #0 has length 1; 2 is required
+2021-08-15 16:55:37,831 - evalation-endpoints - ERROR - 'tuple' object does not support item assignment
+2021-08-15 20:16:53,513 - evalation-endpoints - ERROR - string indices must be integers
+2021-08-15 20:17:23,794 - evalation-endpoints - ERROR - 1
+2021-08-15 20:30:16,402 - logger-exercise-file-data-extractor - ERROR - Failed executing the operation; Not enough parameters for the SQL statement has occured on line 194
+2021-08-15 20:30:16,403 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 194 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-15 20:31:31,107 - logger-exercise-file-data-extractor - ERROR - Failed executing the operation; Not enough parameters for the SQL statement has occured on line 194
+2021-08-15 20:31:31,108 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 194 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-15 20:31:42,093 - logger-exercise-file-data-extractor - ERROR - Failed executing the operation; Not enough parameters for the SQL statement has occured on line 194
+2021-08-15 20:31:42,094 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 194 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-15 20:31:44,339 - logger-exercise-file-data-extractor - ERROR - Failed executing the operation; Not enough parameters for the SQL statement has occured on line 194
+2021-08-15 20:31:44,340 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 194 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-15 20:31:49,009 - logger-exercise-file-data-extractor - ERROR - Failed executing the operation; Not enough parameters for the SQL statement has occured on line 194
+2021-08-15 20:31:49,010 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 194 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>
+2021-08-15 20:32:17,197 - logger-exercise-file-data-extractor - ERROR - Failed executing the operation; Not enough parameters for the SQL statement has occured on line 194
+2021-08-15 20:32:17,198 - logger-exercise-error - ERROR - The syntax of your file is invalid on line nr: 194 <class 'app.endpoints.exercise.errors.InvalidFileFormat'>

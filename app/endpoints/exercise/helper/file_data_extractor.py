@@ -48,15 +48,15 @@ def extract_data(user, file):
                 reps = int(line[0][1])
                 weight = float(line[1].replace("kg", "").replace(",", "."))
                 if len(line) == 2:
-                    name = name
+                    exercise.add_to_pyramid(reps, sets, weight)
+                
                 else:
                     name = ""
                     for i in range(2, len(line)):
                         name += line[i] + " "
-                
 
-                exercise = Exercise(user, reps, sets, weight, name, date)
-                exercises.append(exercise)
+                    exercise = Exercise(user, reps, sets, weight, name, date)
+                    exercises.append(exercise)
 
             
             line_couter += 1
@@ -79,12 +79,8 @@ def extract_data(user, file):
 
 def get_date(date_in, line):
 
-    logger.info(date_in)
-    logger.info("-------------------------------------------")
     date = date_in.split(".")
-    logger.info("-------------------------------------------")
     dt = datetime.today()
-    logger.info(date)
 
     if len(date) == 1:
 
@@ -105,3 +101,41 @@ def get_date(date_in, line):
     
     #else:
     #    raise InvalidDateFormat(f"Your date formating is invalid -> line {line}. Date given -> {date} must have this format: dd or dd.mm or dd.mm.yy")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
