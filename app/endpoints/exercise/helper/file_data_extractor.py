@@ -1,13 +1,11 @@
-from app.endpoints import exercise
+import os
 import sys
+import yaml
+from datetime import datetime
 sys.path.append('.')
 from app.endpoints.exercise.errors import InvalidDateFormat, InvalidFileFormat
-from app.endpoints.user.errors import UserIdNotValidError
 from app.endpoints.exercise.exercise import Exercise
-from datetime import datetime
 from app.logger import get_logger
-
-from mysql.connector.errors import IntegrityError
 
 logger = get_logger("logger-exercise-file-data-extractor")
 
@@ -103,7 +101,10 @@ def get_date(date_in, line):
     #    raise InvalidDateFormat(f"Your date formating is invalid -> line {line}. Date given -> {date} must have this format: dd or dd.mm or dd.mm.yy")
 
 
-
+def get_regex(template_path=None):
+    if template_path == None:
+        template_path = os.path.abspath(os.path.join("app", "endpoints", "exercise","templates"))
+        dict = yaml.load(template_path)
 
 
 
