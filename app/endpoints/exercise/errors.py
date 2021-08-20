@@ -27,3 +27,7 @@ class ExerciseNameToLongError(ExerciseError):
         super().__init__(message=message, error=ExerciseNameToLongError, previous_error=previous_error)
         self.name = "ExerciseNameToLongError"
 
+class ExtractionTemplateNotFound(ExerciseError):
+    def __init__(self, message, previous_error: Exception = None) -> None:
+        super().__init__(message, error=ExtractionTemplateNotFound, previous_error=previous_error)
+

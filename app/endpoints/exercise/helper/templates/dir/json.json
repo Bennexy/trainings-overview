@@ -1,0 +1,21 @@
+{
+	"name":"standard",
+	"template":{
+		"format":{
+			"dateIndecator":"-",
+			"date1":"day",
+			"date2":"month",
+			"date3":"year",
+			"comment":"after # ignored",
+			"exercise1":"set",
+			"exercise2":"reps",
+			"exercise3":"weight (kg optional)",
+			"exercise4":"name"
+		},
+		"regex":{
+			"date":"^-\\s?(?:([0123]?\\d)[.\\/\\\\\\s]([01]?\\d|\\w+)[.\\/\\\\\\s](\\d{2,4})?)",
+			"comment":"#.+",
+			"exercise":"^(\\d+)[x\\-\\_\\\\\\/\\s]+(\\d+)[x\\-\\_\\\\\\/\\s]+([\\d\\,\\.]+(?:kg)?)[x\\-\\_\\\\\\/\\s]*((?:[A-zäöüÄÖÜ\\-\\(\\)]\\s?)+)?"
+		}
+	}
+}

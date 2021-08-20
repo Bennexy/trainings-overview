@@ -5,3 +5,4 @@ db-stuff/*
 *__pycache__*
 deployment/*
 logs/*
+env
