@@ -1,10 +1,11 @@
+from app.endpoints.exercise import exercise
 import os
 import sys
 import yaml
 import regex as re
 from datetime import datetime
 sys.path.append('.')
-from app.endpoints.exercise.errors import InvalidDateFormat, InvalidFileFormat, ExtractionTemplateNotFound
+from app.endpoints.exercise.errors import *
 from app.endpoints.exercise.exercise import Exercise
 from app.logger import get_logger
 
@@ -12,46 +13,70 @@ from app.logger import get_logger
 logger = get_logger("logger-exercise-file-data-extractor")
 
 def extract_data(user, file):
-
-    regex_data = get_regex()
+    
+    regex_data = get_regex()[0]
 
     try:
-        with open(file, "r") as file:
-            for line in file:
-                regex_find(line, regex_data)
+        line_couter = 0
+        exercises = []
+        buffer = ""
+        for line in file:
+                line = line.decode("utf-8").rstrip("\n") 
+                line_couter += 1
+                typ, groups = regex_find(regex_data, line, line_couter)
+
+                if typ == 'date':
+                    date = get_date(groups, line_couter)
+                if typ == 'comment':
+                    pass
+                if typ == 'exercise':
+                    sets = groups[0]
+                    reps = groups[1]
+                    weight = groups[2]
+                    name = groups[3]
+
+                    if name == None or name == buffer:
+                        exercise.add_to_pyramid(reps, sets, weight)
+                    else:
+
+                        buffer = name
+                        exercise = Exercise(user, reps, sets, weight, name, date)
+                        exercises.append(exercise)
+                    
+
+
+        for exercise in exercises:
+            error = exercise.upload()
 
     except Exception as e:
         logger.error(f"{e} has occured on line {line_couter}")
         raise InvalidFileFormat(message=f"The syntax of your file is invalid on line nr: {line_couter}", previous_error=e)
         return {"message": error.message, "error": error.name}
 
-def get_date(date_in, line):
+def get_date(date, line_num):
 
-    date = date_in.split(".")
     dt = datetime.today()
 
-    if len(date) == 1:
+    if date[0] == None:
+        raise InvalidDateFormat(f"The date on line {line_num} has an invalid format. The day must be defined")
+    elif date[1] == None:
 
-        date = datetime.strptime(f"{date[0]}.{dt.month}.{dt.year}", "%d.%m.%Y")
-        return date
+        date = datetime.strptime(f"{date[0]}.{dt.month}.{dt.year}")
 
-    elif len(date) == 2:
+    elif date[2] == None:
 
         date = datetime.strptime(f"{date[0]}.{date[1]}.{dt.year}", "%d.%m.%Y")
-        return date
     
-    elif len(date) == 3:
+    else:
         if len(date[2]) == 2:
-            date[2] = "20" + date[2]
-
-        date = datetime.strptime(f"{date[0]}.{date[1]}.{date[2]}", "%d.%m.%Y")
-        return date
+            year = "20" + date[2]
+        else: 
+            year = date[2]
+        date = datetime.strptime(f"{date[0]}.{date[1]}.{year}", "%d.%m.%Y")
     
-    #else:
-    #    raise InvalidDateFormat(f"Your date formating is invalid -> line {line}. Date given -> {date} must have this format: dd or dd.mm or dd.mm.yy")
-
+    return date
+    
 def get_regex(template_path=None, extraction_file=None):
-
     if template_path == None:
         template_path = os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "templates"))
 
@@ -61,19 +86,27 @@ def get_regex(template_path=None, extraction_file=None):
         extract_dict = []
         if extraction_file != None:
             if file in onlyfiles:
-                items = yaml.load(open(os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "templates", extraction_file))), Loader=yaml.FullLoader)                
+                items = yaml.load(open(os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "templates", extraction_file))), Loader=yaml.FullLoader)
+                extract_dict.append(items)
+                
             else:
                 raise ExtractionTemplateNotFound(f"error no such extraction_file '{extraction_file}' found in dir")
         else:
             for file in onlyfiles:
-                items = yaml.load(open(os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "templates", "main.yaml"))), Loader=yaml.FullLoader)
+                items = yaml.load(open(os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "templates", file))), Loader=yaml.FullLoader)
+                extract_dict.append(items)
 
-    return items
+    return extract_dict
 
-def regex_find(string, regex_data):
-    for key, pattern in regex_data['template']['regex'].items():
-        if key.lower() != 'comment':
-            re.search(regex_data, pattern)
+def regex_find(regex_patterns, string, line_num):
+    for key, pattern in regex_patterns['template']['regex'].items():
+        ergeb = re.search(pattern, string)
+        if ergeb != None:
+            return key, ergeb.groups()
+    
+    return None, None
+
+
 
 
 

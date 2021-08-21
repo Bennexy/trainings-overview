@@ -26,6 +26,8 @@ class Exercise:
         self.pyramid = pyramid
         if date == None:
             self.date = datetime.now().strftime("%Y-%m-%d")
+        if self.weight == None:
+            self.weight = 0
         if pyramid == None:
             self.pyramid = {
                 'name': self.name, 
@@ -74,6 +76,8 @@ class Exercise:
         mydb.commit()
 
     def add_to_pyramid(self, reps: int, sets: int, weight: int):
+        if weight == None:
+            weight = 0
         self.pyramid["reps"].append(reps)
         self.pyramid["sets"].append(sets)
         self.pyramid["weight"].append(weight)

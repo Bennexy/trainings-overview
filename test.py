@@ -1,4 +1,5 @@
 import os, yaml
+import regex as re
 
 def get_regex(template_path=None, extraction_file=None):
     if template_path == None:
@@ -23,10 +24,32 @@ def get_regex(template_path=None, extraction_file=None):
 
     return extract_dict
 
+def get_file():
+    file_path = os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "demo-file.txt"))
+    file_data = []
+    with open(file_path, "r") as file:
+        for line in file:
+            file_data.append(line)
+    
+    return file_data
 
-a = get_regex()
 
-print(a)
+def get_match(regex_patterns, string):
+    for key, pattern in regex_patterns['template']['regex'].items():
+        ergeb = re.search(pattern, string)
+        if ergeb != None:
+            print(key, ergeb.groups())
+
+a = get_regex()[0]
+
+print(type(a))
+
+file = get_file()
+
+for line in file:
+    get_match(a, line)
+
+
 
 
 

@@ -46,9 +46,11 @@ async def file_upload(user_id : int,date: str = None ,file_uplaod: UploadFile = 
     except Exception as e:
         return e
 
+
 @router.get("/demo_file_download")
 async def example_file_download():
     return FileResponse(os.path.abspath("app\endpoints\exercise\helper\demo-file.txt"), media_type='application/octet-stream', filename="demo-file.txt")
+
 
 @router.put("/update_exercise_name/{user_id}")              
 async def update_exercise_name(user_id : int, exercise_name_old: str, exercise_name_new: str):

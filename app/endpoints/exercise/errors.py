@@ -10,7 +10,7 @@ class ExerciseError(Exception):
         logger.error(f"{message} {error}")
         self.message = message
         self.error = error
-        self. previous_error = previous_error
+        self.previous_error = previous_error
 
 class InvalidFileFormat(ExerciseError):
     def __init__(self, message, previous_error: Exception = None) -> None:
@@ -31,3 +31,6 @@ class ExtractionTemplateNotFound(ExerciseError):
     def __init__(self, message, previous_error: Exception = None) -> None:
         super().__init__(message, error=ExtractionTemplateNotFound, previous_error=previous_error)
 
+class ConfilctingRegexResultsError(ExerciseError):
+    def __init__(self, message, previous_error: Exception = None) -> None:
+        super().__init__(message=message, error=ConfilctingRegexResultsError, previous_error=previous_error)
