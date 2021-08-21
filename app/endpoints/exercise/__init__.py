@@ -8,7 +8,7 @@ from fastapi import APIRouter, File
 from starlette.responses import FileResponse
 
 from app.endpoints.exercise.exercise import Exercise
-from app.endpoints.exercise.helper.file_data_extractor import extract_data
+from app.endpoints.exercise.helper.file_data_extractor import extract_data, get_regex
 from app.endpoints.user.user import User
 from app.logger import get_logger
 
@@ -75,6 +75,8 @@ async def delete_exercise(user_id : int, exercise_data: dict):
 
     return {"message": "Data has been deleted from db"}
 
-
+@router.get("/regex")
+async def get_regex():
+    return get_regex()
 
 

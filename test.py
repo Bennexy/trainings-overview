@@ -1,16 +1,32 @@
-import sys
-import json
-sys.path.append('.')
+import os, yaml
 
-from datetime import datetime
-from app.endpoints.exercise.errors import InvalidDateFormat
+def get_regex(template_path=None, extraction_file=None):
+    if template_path == None:
+        template_path = os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "templates"))
+
+    onlyfiles = [f for f in os.listdir(template_path) if os.path.isfile(os.path.join(template_path, f)) and f.endswith(".yaml") or f.endswith(".yml")]
+
+    for file in onlyfiles:
+        extract_dict = []
+        if extraction_file != None:
+            if file in onlyfiles:
+                items = yaml.load(open(os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "templates", extraction_file))), Loader=yaml.FullLoader)
+                extract_dict.append(items)
+                
+            else:
+                print("not foundss")
+                #raise ExtractionTemplateNotFound(f"error no such extraction_file '{extraction_file}' found in dir")
+        else:
+            for file in onlyfiles:
+                items = yaml.load(open(os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "templates", file))), Loader=yaml.FullLoader)
+                extract_dict.append(items)
+
+    return extract_dict
 
 
-d = """{"name": "Kreuzheben ", "reps": [12, 12, 12, 6, 6, 12, 12], "sets": [1, 1, 1, 2, 2, 1, 1], "weight": [70.0, 80.0, 90.0, 95.0, 90.0, 80.0, 70.0]}"""
+a = get_regex()
 
-d = json.loads(d)
-
-print(type(d))
+print(a)
 
 
 
