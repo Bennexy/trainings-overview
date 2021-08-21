@@ -1,5 +1,5 @@
 # <- lines starting with a hashtag will be ignored
-# - <- lines starting with a dash will be search for a date only valid with this format --> dd/mm/yy --> if the year and month are left blank the program will assume the current month and year
+# - <- lines starting with a dash will be search for a date only valid with this format --> dd.mm.yy or dd.mm.yyyy --> if the year and month are left blank the program will assume the current month and year
 
 # The syntax of the exercise is following: 'sets'x'reps' 'weight' 'name'
 # The ' is only for demonstration 
