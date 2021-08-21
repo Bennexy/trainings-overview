@@ -54,6 +54,9 @@ def extract_data(user, file):
                     name = ""
                     for i in range(2, len(line)):
                         name += line[i] + " "
+                    
+                    if name.endswith(" "):
+                        name = name[:-1]
 
                     exercise = Exercise(user, reps, sets, weight, name, date)
                     exercises.append(exercise)

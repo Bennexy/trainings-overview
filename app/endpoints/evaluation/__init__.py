@@ -11,14 +11,6 @@ logger = get_logger("evalation-endpoints")
 router = APIRouter(tags=["Evaluation"])
 
 
-@router.get("/test/{user_id}")
-async def test(user_id: int):
-
-    evaluation = Evaluation(user=User(id=user_id))
-
-    return "JAAAAAAAAAAAAAAAAAAA"
-
-
 @router.get("/get_traning_days({user_id}")
 async def get_training_days(user_id : int):
 
