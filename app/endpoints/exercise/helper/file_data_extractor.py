@@ -1,3 +1,4 @@
+from regex.regex import template
 from app.endpoints.exercise import exercise
 import os
 import sys
@@ -7,115 +8,131 @@ from datetime import datetime
 sys.path.append('.')
 from app.endpoints.exercise.errors import *
 from app.endpoints.exercise.exercise import Exercise
+from app.endpoints.user.user import User
 from app.logger import get_logger
+from tempfile import SpooledTemporaryFile
 
 
 logger = get_logger("logger-exercise-file-data-extractor")
 
-def extract_data(user, file):
-    
-    regex_data = get_regex()[0]
+class Extractor:
 
-    try:
-        line_couter = 0
+    def __init__(self, user: User, template_folder: str = "default") -> None:
+
+        self.user = user
+
+        self.template_folder = template_folder
+        self.templates_raw = []
+
+        # chosen template data
+        self.name = None
+        self.documentation = None
+        self.date_regex = None
+        self.exercise_regex = None
+
+
+        if template_folder == "default":
+            self.template_folder = os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "templates"))
+    
+    def template_load(self, template_name: str = "default"):
+
+        files = [f for f in os.listdir(self.template_folder) if os.path.isfile(os.path.join(self.template_folder, f)) and f.endswith(".yaml") or f.endswith(".yml")]
+
+        for file in files:
+            items = yaml.load(open(os.path.join(self.template_folder, file)), Loader=yaml.FullLoader)
+            self.templates_raw.append(items)
+
+        for temp in self.templates_raw:
+            if temp['name'] == template_name:
+                reg = temp['template']['regex']
+                self.name = temp['name']
+                self.documentation = temp['template']['format']
+                self.date_regex = reg['date']
+                self.exercise_regex = reg['exercise']
+
+        # print(self.name)
+        # print(self.documentation)
+        # print(self.date_regex)
+        # print(self.exercise_regex)
+
+    def extract_data(self, file: SpooledTemporaryFile):
+        
+        line_num = 0
         exercises = []
-        buffer = ""
+
         for line in file:
-                line = line.decode("utf-8").rstrip("\n") 
-                line_couter += 1
-                typ, groups = regex_find(regex_data, line, line_couter)
+            line = line.decode("utf-8").rstrip("\n") 
+            line_num += 1
 
-                if typ == 'date':
-                    date = get_date(groups, line_couter)
-                if typ == 'comment':
-                    pass
-                if typ == 'exercise':
-                    sets = groups[0]
-                    reps = groups[1]
-                    weight = groups[2]
-                    name = groups[3]
+            res = self.find_regex_matches(self.date_regex, line)
 
-                    if name == None or name == buffer:
-                        exercise.add_to_pyramid(reps, sets, weight)
-                    else:
-
-                        buffer = name
-                        exercise = Exercise(user, reps, sets, weight, name, date)
-                        exercises.append(exercise)
-                    
-
-
-        for exercise in exercises:
-            error = exercise.upload()
-
-    except Exception as e:
-        logger.error(f"{e} has occured on line {line_couter}")
-        raise InvalidFileFormat(message=f"The syntax of your file is invalid on line nr: {line_couter}", previous_error=e)
-        return {"message": error.message, "error": error.name}
-
-def get_date(date, line_num):
-
-    dt = datetime.today()
-
-    if date[0] == None:
-        raise InvalidDateFormat(f"The date on line {line_num} has an invalid format. The day must be defined")
-    elif date[1] == None:
-
-        date = datetime.strptime(f"{date[0]}.{dt.month}.{dt.year}")
-
-    elif date[2] == None:
-
-        date = datetime.strptime(f"{date[0]}.{date[1]}.{dt.year}", "%d.%m.%Y")
-    
-    else:
-        if len(date[2]) == 2:
-            year = "20" + date[2]
-        else: 
-            year = date[2]
-        date = datetime.strptime(f"{date[0]}.{date[1]}.{year}", "%d.%m.%Y")
-    
-    return date
-    
-def get_regex(template_path=None, extraction_file=None):
-    if template_path == None:
-        template_path = os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "templates"))
-
-    onlyfiles = [f for f in os.listdir(template_path) if os.path.isfile(os.path.join(template_path, f)) and f.endswith(".yaml") or f.endswith(".yml")]
-
-    for file in onlyfiles:
-        extract_dict = []
-        if extraction_file != None:
-            if file in onlyfiles:
-                items = yaml.load(open(os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "templates", extraction_file))), Loader=yaml.FullLoader)
-                extract_dict.append(items)
-                
+            if len(res) != 0:
+                res = res[0]
+                date = self.get_date_obj(res, line_num)
+                res = []
             else:
-                raise ExtractionTemplateNotFound(f"error no such extraction_file '{extraction_file}' found in dir")
+                res = self.find_regex_matches(self.exercise_regex, line)
+                
+            
+            if len(res) != 0:
+                res = res[0]
+
+                sets = res[0]
+                reps = res[1]
+                weight = res[2]
+                name = res[3]
+
+                if name == None:
+                    exercise.add_to_pyramid(reps, sets, weight)
+                else:
+                    exercise = Exercise(self.user, reps, sets, weight, name, date)
+                    exercises.append(exercise)
+        
+        for exercise in exercises:
+            exercise.upload()
+        
+
+
+
+    @staticmethod
+    def find_regex_matches(regex, line):
+        ergeb = []
+
+        if type(regex) == list:
+            for pattern in regex:
+                res = re.search(pattern, line)
+                if res != None:
+                    ergeb.append(res.groups())
+        
         else:
-            for file in onlyfiles:
-                items = yaml.load(open(os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "templates", file))), Loader=yaml.FullLoader)
-                extract_dict.append(items)
+            res = re.search(regex, line)
+            if res != None:
+                ergeb.append(res.groups())
+        
+        return ergeb
 
-    return extract_dict
+    @staticmethod
+    def get_date_obj(date, line_num):
+        dt = datetime.today()
 
-def regex_find(regex_patterns, string, line_num):
-    for key, pattern in regex_patterns['template']['regex'].items():
-        ergeb = re.search(pattern, string)
-        if ergeb != None:
-            return key, ergeb.groups()
-    
-    return None, None
+        if date[0] == None:
+            raise InvalidDateFormat(f"The date on line {line_num} has an invalid format. The day must be defined")
 
+        elif date[1] == None:
 
+            date = datetime.strptime(f"{date[0]}.{dt.month}.{dt.year}")
 
-
-
-
-
-
-
-
-
+        elif date[2] == None:
+            date = datetime.strptime(f"{date[0]}.{date[1]}.{dt.year}", "%d.%m.%Y")
+        
+        else:
+            if len(date[2]) == 2:
+                year = "20" + date[2]
+            else: 
+                year = date[2]
+            date = datetime.strptime(f"{date[0]}.{date[1]}.{year}", "%d.%m.%Y")
+        
+        return date
 
 
 

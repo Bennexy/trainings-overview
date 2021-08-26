@@ -8,7 +8,7 @@ from fastapi import APIRouter, File
 from starlette.responses import FileResponse
 
 from app.endpoints.exercise.exercise import Exercise
-from app.endpoints.exercise.helper.file_data_extractor import extract_data, get_regex
+from app.endpoints.exercise.helper.file_data_extractor import Extractor
 from app.endpoints.user.user import User
 from app.logger import get_logger
 
@@ -35,15 +35,20 @@ async def exercise(user_id : int,name, reps, sets, weight):
 
 description_file_upload = """Uploads data from a file - for format info download the demo file"""
 @router.post("/file_uplaod/{user_id}", description=description_file_upload)
-async def file_upload(user_id : int,date: str = None ,file_uplaod: UploadFile = File(...)):
+async def file_upload(user_id : int, date: str = None , file_uplaod: UploadFile = File(...)):
     
     try:
         user = User(id=user_id)
 
-        error = extract_data(user, file_uplaod.file)
+        extractor = Extractor(user=user)
+
+        extractor.template_load()
+
+        extractor.extract_data(file_uplaod.file)
 
         return {"message": "Exercise data has been uploaded to db"}
     except Exception as e:
+        print(e)
         return e
 
 

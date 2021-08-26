@@ -1,53 +1,49 @@
+import sys
+sys.path.append('.')
 import os, yaml
 import regex as re
 
-def get_regex(template_path=None, extraction_file=None):
-    if template_path == None:
-        template_path = os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "templates"))
+class Extractor:
 
-    onlyfiles = [f for f in os.listdir(template_path) if os.path.isfile(os.path.join(template_path, f)) and f.endswith(".yaml") or f.endswith(".yml")]
+    def __init__(self, template_folder: str = "default") -> None:
 
-    for file in onlyfiles:
-        extract_dict = []
-        if extraction_file != None:
-            if file in onlyfiles:
-                items = yaml.load(open(os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "templates", extraction_file))), Loader=yaml.FullLoader)
-                extract_dict.append(items)
-                
-            else:
-                print("not foundss")
-                #raise ExtractionTemplateNotFound(f"error no such extraction_file '{extraction_file}' found in dir")
-        else:
-            for file in onlyfiles:
-                items = yaml.load(open(os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "templates", file))), Loader=yaml.FullLoader)
-                extract_dict.append(items)
+        self.template_folder = template_folder
+        self.templates_raw = []
 
-    return extract_dict
+        # chosen template data
+        self.name = None
+        self.documentation = None
+        self.date_regex = None
+        self.exercise_regex = None
 
-def get_file():
-    file_path = os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "demo-file.txt"))
-    file_data = []
-    with open(file_path, "r") as file:
-        for line in file:
-            file_data.append(line)
+
+        if template_folder == "default":
+            self.template_folder = os.path.abspath(os.path.join("app", "endpoints", "exercise", "helper", "templates"))
     
-    return file_data
+    def template_load(self, template_name: str = "default"):
+
+        files = [f for f in os.listdir(self.template_folder) if os.path.isfile(os.path.join(self.template_folder, f)) and f.endswith(".yaml") or f.endswith(".yml")]
+
+        for file in files:
+            items = yaml.load(open(os.path.join(self.template_folder, file)), Loader=yaml.FullLoader)
+            self.templates_raw.append(items)
+
+        for temp in self.templates_raw:
+            if temp['name'] == template_name:
+                reg = temp['template']['regex']
+                self.name = temp['name']
+                self.documentation = temp['template']['format']
+                self.date_regex = reg['date']
+                self.exercise_regex = reg['exercise']
+
+        print(self.name)
+        print(self.documentation)
+        print(self.date_regex)
+        print(self.exercise_regex)
 
 
-def get_match(regex_patterns, string):
-    for key, pattern in regex_patterns['template']['regex'].items():
-        ergeb = re.search(pattern, string)
-        if ergeb != None:
-            print(key, ergeb.groups())
-
-a = get_regex()[0]
-
-print(type(a))
-
-file = get_file()
-
-for line in file:
-    get_match(a, line)
+extrator = Extractor()
+extrator.template_load()
 
 
 

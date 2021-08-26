@@ -6,3 +6,5 @@ db-stuff/*
 deployment/*
 logs/*
 env
+*/.DS_Store
+.DS_Store
