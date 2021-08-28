@@ -77,15 +77,27 @@ class Extractor:
             if len(res) != 0:
                 res = res[0]
 
+
                 sets = res[0]
-                reps = res[1]
+                if sets == None:
+                    sets = 1
+
+                reps = int(res[1])
+
                 weight = res[2]
+                if weight != None:
+                    weight = float(str(weight).replace("kg", "").replace(",", "."))
+                else:
+                    weight = 0
+
                 name = res[3]
+                if name.rstrip(" ") == "":
+                    name = None
 
                 if name == None:
-                    exercise.add_to_pyramid(reps, sets, weight)
+                    exercise.add_to_pyramid(int(reps), int(sets), float(weight))
                 else:
-                    exercise = Exercise(self.user, reps, sets, weight, name, date)
+                    exercise = Exercise(self.user, int(reps), int(sets), float(weight), name, date)
                     exercises.append(exercise)
         
         for exercise in exercises:
@@ -97,7 +109,7 @@ class Extractor:
     @staticmethod
     def find_regex_matches(regex, line):
         ergeb = []
-
+        
         if type(regex) == list:
             for pattern in regex:
                 res = re.search(pattern, line)

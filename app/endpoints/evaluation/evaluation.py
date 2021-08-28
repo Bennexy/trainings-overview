@@ -37,19 +37,28 @@ class Evaluation:
 
         if exercise_name != None:
 
-            mycursor.execute(f"SELECT reps, sets, weight, date, name FROM exercise WHERE user_id = {self.user.id} AND name = '{exercise_name}'")
+            mycursor.execute(f"SELECT name, date, pyramid FROM exercise WHERE user_id = {self.user.id} AND name = '{exercise_name}'")
 
         else:
-            mycursor.execute(f"SELECT reps, sets, weight, date, name FROM exercise WHERE user_id = {self.user.id}")
+            mycursor.execute(f"SELECT name, date, pyramid FROM exercise WHERE user_id = {self.user.id}")
 
         res = mycursor.fetchall()
         max = {}
         for entry in res:
-            if entry[4] not in max:
-                max[str(entry[4])] = {f"name": entry[4], "weight": entry[2], "reps": entry[0], "sets": entry[1], "date": entry[3]}
+            pyramid = json.loads(entry[2])
+            max_weight = 0.0
+            counter_max_weight = None
+            for counter in range(0, len(pyramid['weight'])):
+
+                if float(pyramid['weight'][counter]) >= max_weight:
+                    counter_max_weight = counter
+                    max_weight = float(pyramid['weight'][counter])
+
+            if str(entry[0]) not in max:
+                max[str(entry[0])] = {f"name": entry[0], "weight": float(pyramid['weight'][counter_max_weight]), "reps": int(pyramid['reps'][counter_max_weight]), "sets": int(pyramid['sets'][counter_max_weight]), "date": entry[1]}
             else:
-                if max[str(entry[4])]["weight"] < entry[2]:
-                    max[entry[4]] = {f"name": entry[4], "weight": entry[2], "reps": entry[0], "sets": entry[1], "date": entry[3]}
+                if max[str(entry[0])]["weight"] < float(pyramid['weight'][counter_max_weight]):
+                    max[str(entry[0])] = {f"name": entry[0], "weight": float(pyramid['weight'][counter_max_weight]), "reps": int(pyramid['reps'][counter_max_weight]), "sets": int(pyramid['sets'][counter_max_weight]), "date": entry[1]}
 
         return max
         

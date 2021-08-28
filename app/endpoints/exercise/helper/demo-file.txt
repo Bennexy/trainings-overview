@@ -96,26 +96,10 @@
 4x12 80kg high row
 
 
-
-
-
-
-
-- 4.08 
-# Simon
-3x12 0kg Bauch unroll
-3x12 60kg Kniebeugen
-# Ben
+- 4.8 # Ben
 2x12 50kg Bankdrücken
 1x12 70kg
 2x12 60kg
-# Simon
-1x12 50kg Bankdrücken
-2x12 75kg
-1x12 70kg
-1x12 60kg
-
-# Beide:
 1x12 40kg Low row
 1x12 70kg Low row
 1x12 80kg
@@ -189,5 +173,4 @@
 1x12 90kg Leg press
 2x12 120kg Leg press
 2x12 130kg Leg press
-
 
