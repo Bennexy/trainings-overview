@@ -3,19 +3,20 @@ import json
 sys.path.append(".")
 from app.endpoints.user.user import User
 from datetime import datetime
-from app import mycursor, mydb
-
-
+from app.config import DB_NAME
+from app import mydb
 
 class Evaluation:
 
     def __init__(self, user: User) -> None:
         self.user = user
+        self.mycursor = mydb.cursor()
+        self.mycursor.execute("USE " + str(DB_NAME))
     
     def get_training_days(self):
 
-        mycursor.execute(f"SELECT date FROM exercise WHERE user_id = {self.user.id}")
-        res = mycursor.fetchall()
+        self.mycursor.execute(f"SELECT date FROM exercise WHERE user_id = {self.user.id}")
+        res = self.mycursor.fetchall()
 
         if len(res) == 0:
             return {"message": "No trainings found under this user-id"}
@@ -37,12 +38,12 @@ class Evaluation:
 
         if exercise_name != None:
 
-            mycursor.execute(f"SELECT name, date, pyramid FROM exercise WHERE user_id = {self.user.id} AND name = '{exercise_name}'")
+            self.mycursor.execute(f"SELECT name, date, pyramid FROM exercise WHERE user_id = {self.user.id} AND name = '{exercise_name}'")
 
         else:
-            mycursor.execute(f"SELECT name, date, pyramid FROM exercise WHERE user_id = {self.user.id}")
+            self.mycursor.execute(f"SELECT name, date, pyramid FROM exercise WHERE user_id = {self.user.id}")
 
-        res = mycursor.fetchall()
+        res = self.mycursor.fetchall()
         max = {}
         for entry in res:
             pyramid = json.loads(entry[2])
@@ -64,8 +65,8 @@ class Evaluation:
         
     def get_exercise_names(self) -> list:
 
-        mycursor.execute(f"SELECT name FROM exercise WHERE user_id = {self.user.id}")
-        res = mycursor.fetchall()
+        self.mycursor.execute(f"SELECT name FROM exercise WHERE user_id = {self.user.id}")
+        res = self.mycursor.fetchall()
         names = []
         for name in res:
             name = name[0]
@@ -77,11 +78,11 @@ class Evaluation:
     def get_exercise_history(self, exercise_name) -> dict:
 
         if exercise_name != None:
-            mycursor.execute(f"SELECT date, pyramid FROM exercise WHERE user_id = '{self.user.id}' AND name = '{exercise_name}'")
+            self.mycursor.execute(f"SELECT date, pyramid FROM exercise WHERE user_id = '{self.user.id}' AND name = '{exercise_name}'")
         else:
-            mycursor.execute(f"SELECT date, pyramid FROM exercise WHERE user_id = '{self.user.id}'")
+            self.mycursor.execute(f"SELECT date, pyramid FROM exercise WHERE user_id = '{self.user.id}'")
 
-        res = mycursor.fetchall()
+        res = self.mycursor.fetchall()
 
         data = {}
         for entry in res:
