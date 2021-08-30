@@ -121,7 +121,30 @@ class Evaluation:
             if str(entry[1]) not in results:
                 results[str(entry[1])] = []
 
-            results[str(entry[1])].append({f"name": entry[0], "weight": float(pyramid['weight'][counter_max_weight]), "reps": int(pyramid['reps'][counter_max_weight]), "sets": int(pyramid['sets'][counter_max_weight]), "date": entry[1]})
+            data = {"name": entry[0], "weight": float(pyramid['weight'][counter_max_weight]), "reps": int(pyramid['reps'][counter_max_weight]), "sets": int(pyramid['sets'][counter_max_weight]), "date": entry[1]}
+
+            if self.check_if_exercise_in_list(results[str(entry[1])], data):
+                results[str(entry[1])].append(data)
+            else:
+                for data_entry in results[str(entry[1])]:
+                    if data_entry['name'] == data['name']:
+                        if data_entry['weight'] < data['weight']:
+                            data_entry['weight'] = data['weight']
+                            data_entry['reps'] = data['reps']
+                            data_entry['sets'] = data['sets']
+
+            
 
         return results
+
+    @staticmethod
+    def check_if_exercise_in_list(results, data):
+        names = []
+        for entry in results:
+            names.append(entry['name'])
+        
+        if data['name'] not in names:
+            return True
+        else:
+            return False
 
