@@ -97,3 +97,31 @@ class Evaluation:
 
         return data
 
+    def get_max_weight_per_day(self, exercise_name) -> dict:
+
+        results = {}
+
+        if exercise_name != None:
+            self.mycursor.execute(f"SELECT name, date, pyramid FROM exercise WHERE user_id = {self.user.id} AND name = '{exercise_name}'")
+        else:
+            self.mycursor.execute(f"SELECT name, date, pyramid FROM exercise WHERE user_id = {self.user.id}")
+
+        res = self.mycursor.fetchall()
+
+        for entry in res:
+            pyramid = json.loads(entry[2])
+            max_weight = 0.0
+            counter_max_weight = None
+            for counter in range(0, len(pyramid['weight'])):
+
+                if float(pyramid['weight'][counter]) >= max_weight:
+                    counter_max_weight = counter
+                    max_weight = float(pyramid['weight'][counter])
+            
+            if str(entry[1]) not in results:
+                results[str(entry[1])] = []
+
+            results[str(entry[1])].append({f"name": entry[0], "weight": float(pyramid['weight'][counter_max_weight]), "reps": int(pyramid['reps'][counter_max_weight]), "sets": int(pyramid['sets'][counter_max_weight]), "date": entry[1]})
+
+        return results
+
