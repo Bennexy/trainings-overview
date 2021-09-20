@@ -3,19 +3,20 @@ import json
 sys.path.append(".")
 from app.endpoints.user.user import User
 from datetime import datetime
-from app import mycursor, mydb
-
-
+from app.config import DB_NAME
+from app import mydb
 
 class Evaluation:
 
     def __init__(self, user: User) -> None:
         self.user = user
+        self.mycursor = mydb.cursor()
+        self.mycursor.execute("USE " + str(DB_NAME))
     
     def get_training_days(self):
 
-        mycursor.execute(f"SELECT date FROM exercise WHERE user_id = {self.user.id}")
-        res = mycursor.fetchall()
+        self.mycursor.execute(f"SELECT date FROM exercise WHERE user_id = {self.user.id}")
+        res = self.mycursor.fetchall()
 
         if len(res) == 0:
             return {"message": "No trainings found under this user-id"}
@@ -37,12 +38,12 @@ class Evaluation:
 
         if exercise_name != None:
 
-            mycursor.execute(f"SELECT name, date, pyramid FROM exercise WHERE user_id = {self.user.id} AND name = '{exercise_name}'")
+            self.mycursor.execute(f"SELECT name, date, pyramid FROM exercise WHERE user_id = {self.user.id} AND name = '{exercise_name}'")
 
         else:
-            mycursor.execute(f"SELECT name, date, pyramid FROM exercise WHERE user_id = {self.user.id}")
+            self.mycursor.execute(f"SELECT name, date, pyramid FROM exercise WHERE user_id = {self.user.id}")
 
-        res = mycursor.fetchall()
+        res = self.mycursor.fetchall()
         max = {}
         for entry in res:
             pyramid = json.loads(entry[2])
@@ -64,8 +65,8 @@ class Evaluation:
         
     def get_exercise_names(self) -> list:
 
-        mycursor.execute(f"SELECT name FROM exercise WHERE user_id = {self.user.id}")
-        res = mycursor.fetchall()
+        self.mycursor.execute(f"SELECT name FROM exercise WHERE user_id = {self.user.id}")
+        res = self.mycursor.fetchall()
         names = []
         for name in res:
             name = name[0]
@@ -77,11 +78,11 @@ class Evaluation:
     def get_exercise_history(self, exercise_name) -> dict:
 
         if exercise_name != None:
-            mycursor.execute(f"SELECT date, pyramid FROM exercise WHERE user_id = '{self.user.id}' AND name = '{exercise_name}'")
+            self.mycursor.execute(f"SELECT date, pyramid FROM exercise WHERE user_id = '{self.user.id}' AND name = '{exercise_name}'")
         else:
-            mycursor.execute(f"SELECT date, pyramid FROM exercise WHERE user_id = '{self.user.id}'")
+            self.mycursor.execute(f"SELECT date, pyramid FROM exercise WHERE user_id = '{self.user.id}'")
 
-        res = mycursor.fetchall()
+        res = self.mycursor.fetchall()
 
         data = {}
         for entry in res:
@@ -95,4 +96,55 @@ class Evaluation:
 
 
         return data
+
+    def get_max_weight_per_day(self, exercise_name) -> dict:
+
+        results = {}
+
+        if exercise_name != None:
+            self.mycursor.execute(f"SELECT name, date, pyramid FROM exercise WHERE user_id = {self.user.id} AND name = '{exercise_name}'")
+        else:
+            self.mycursor.execute(f"SELECT name, date, pyramid FROM exercise WHERE user_id = {self.user.id}")
+
+        res = self.mycursor.fetchall()
+
+        for entry in res:
+            pyramid = json.loads(entry[2])
+            max_weight = 0.0
+            counter_max_weight = None
+            for counter in range(0, len(pyramid['weight'])):
+
+                if float(pyramid['weight'][counter]) >= max_weight:
+                    counter_max_weight = counter
+                    max_weight = float(pyramid['weight'][counter])
+            
+            if str(entry[1]) not in results:
+                results[str(entry[1])] = []
+
+            data = {"name": entry[0], "weight": float(pyramid['weight'][counter_max_weight]), "reps": int(pyramid['reps'][counter_max_weight]), "sets": int(pyramid['sets'][counter_max_weight]), "date": entry[1]}
+
+            if self.check_if_exercise_in_list(results[str(entry[1])], data):
+                results[str(entry[1])].append(data)
+            else:
+                for data_entry in results[str(entry[1])]:
+                    if data_entry['name'] == data['name']:
+                        if data_entry['weight'] < data['weight']:
+                            data_entry['weight'] = data['weight']
+                            data_entry['reps'] = data['reps']
+                            data_entry['sets'] = data['sets']
+
+            
+
+        return results
+
+    @staticmethod
+    def check_if_exercise_in_list(results, data):
+        names = []
+        for entry in results:
+            names.append(entry['name'])
+        
+        if data['name'] not in names:
+            return True
+        else:
+            return False
 

@@ -3,11 +3,12 @@ import json
 sys.path.append(".")
 
 from datetime import datetime
-from app import mycursor, mydb
 from mysql.connector.errors import IntegrityError
 from mysql.connector.errors import DataError
 from app.endpoints.user.errors import UserIdNotValidError
 from app.endpoints.exercise.errors import ExerciseNameToLongError
+from app.config import DB_NAME
+from app import mydb
 
 from app.logger import get_logger
 
@@ -35,6 +36,9 @@ class Exercise:
                 'sets': [self.sets],
                 'weight': [self.weight]
                 }
+
+        self.mycursor = mydb.cursor()
+        self.mycursor.execute("USE " + str(DB_NAME))
             
 
     def upload(self) -> None:
@@ -42,7 +46,7 @@ class Exercise:
             sql = "INSERT INTO exercise (user_id, name, date, pyramid) VALUES (%s, %s, %s, %s)"
             val = [(self.user.id, self.name, self.date, json.dumps(self.pyramid))]
 
-            mycursor.executemany(sql, val)
+            self.mycursor.executemany(sql, val)
             mydb.commit()
         
         except DataError as e:
@@ -54,10 +58,10 @@ class Exercise:
 
     def rename(self, new_name):
 
-        mycursor.execute(f"UPDATE exercise SET name = '{new_name}' WHERE user_id = '{self.user.id}' AND name = '{self.name}'")
+        self.mycursor.execute(f"UPDATE exercise SET name = '{new_name}' WHERE user_id = '{self.user.id}' AND name = '{self.name}'")
         mydb.commit()
 
-        return {'message': f'{mycursor.rowcount} entries renamed'}
+        return {'message': f'{self.mycursor.rowcount} entries renamed'}
 
     # still needs fixing
     def delete_exercise_from_db(self, exercise_data):
@@ -72,7 +76,7 @@ class Exercise:
         if 'weight' in exercise_data:
             delete_string + f" AND weight = '{exercise_data['weight']}'"
 
-        mycursor.execute(f"DELETE FROM exercise WHERE " + delete_string)
+        self.mycursor.execute(f"DELETE FROM exercise WHERE " + delete_string)
         mydb.commit()
 
     def add_to_pyramid(self, reps: int, sets: int, weight: int):

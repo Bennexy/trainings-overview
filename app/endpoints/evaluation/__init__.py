@@ -45,8 +45,14 @@ async def get_exercise_history(user_id: int, exercise_name: str = None):
         logger.error(e)
         return {"error": e}
 
+@router.get("/get_max_weight_per_day/{user_id}")
+async def get_max_weight_per_day(user_id: int, exercise_name: str = None):
+    
+    evaluation = Evaluation(user=User(id=user_id))
 
+    data = evaluation.get_max_weight_per_day(exercise_name)
 
+    return data
 
 
 
