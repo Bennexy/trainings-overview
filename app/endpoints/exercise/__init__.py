@@ -19,12 +19,12 @@ router = APIRouter(tags=["Exercise"])
 
 description_exercise = "Uploads data from one set of exercises to the db"
 @router.post("/{user_id}", description=description_exercise)
-async def exercise(user_id : int,name, reps, sets, weight):
+async def exercise(user_id : int, name: str, reps: int, weight: float, sets: int = None):
     
     try:
         user = User(id=user_id)
 
-        exercise = Exercise(user, reps, sets, weight, name)
+        exercise = Exercise(user, reps, sets, weight, name.lower())
 
         exercise.upload()
 
@@ -63,9 +63,9 @@ async def update_exercise_name(user_id : int, exercise_name_old: str, exercise_n
     try:
         user = User(id=user_id)
 
-        exercise = Exercise(user, name=exercise_name_old)
+        exercise = Exercise(user, name=exercise_name_old.lower())
 
-        res = exercise.rename(exercise_name_new)
+        res = exercise.rename(exercise_name_new.lower())
 
         return res
     

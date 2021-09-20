@@ -23,7 +23,7 @@ async def get_max_weight(user_id : int, exercise: str = None):
 
     evaluation = Evaluation(user=User(id=user_id))
 
-    max = evaluation.get_max_traings_data(exercise)
+    max = evaluation.get_max_traings_data(exercise.lower())
 
     return max
 

@@ -97,7 +97,7 @@ class Extractor:
                 if name == None:
                     exercise.add_to_pyramid(int(reps), int(sets), float(weight))
                 else:
-                    exercise = Exercise(self.user, int(reps), int(sets), float(weight), name, date)
+                    exercise = Exercise(self.user, int(reps), int(sets), float(weight), name.lower(), date)
                     exercises.append(exercise)
         
         for exercise in exercises:

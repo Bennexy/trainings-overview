@@ -18,6 +18,8 @@ class User:
         self.creation_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     def create(self):
+
+        
         
         sql = "INSERT INTO users (name, creation_date) VALUES (%s, %s)"
         val = [(self.name, self.creation_date)]
